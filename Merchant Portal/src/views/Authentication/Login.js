@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import background from '../../Assets/background.png';
+import bg from '../../Assets/background.png';
 
 import {
   MDBNavbar,
@@ -55,8 +57,9 @@ export function Login() {
       </MDBNavbar>
       <div
         className='p-5 text-center bg-image'
-        style={{ backgroundImage: "url('https://img.choice.com.au/-/media/ccadb54aafa140a9a82530c8be38d858.ashx?w=760.png')", height: "88vh" }}
+        style={{ background: `url(${bg})`, height: "88vh", backgroundSize: 'cover'}}
       >
+          
         <div className='mask' style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}>
           <div className='d-flex justify-content-center align-items-center h-100'>
 

@@ -26,15 +26,15 @@ import {
   useMatch
 } from "react-router-dom";
 
-import { CustomerSetup } from './CustomerSetup';
-import { CustomerList } from './CustomerList';
+import { UserSetup } from './UserSetup';
+import { UserList } from './UserList';
 
-export function CustomerRegisteration() {
+export function UserConfiguration() {
 
   return (
     <Routes >
-    <Route path={`/`} element={ <CustomerList />} />
-    <Route path={`add/`} element={ <CustomerSetup />} />
+    <Route path={`/`} element={ <UserList />} />
+    <Route path={`add/`} element={ <UserSetup />} />
   </Routes>
   );
 }

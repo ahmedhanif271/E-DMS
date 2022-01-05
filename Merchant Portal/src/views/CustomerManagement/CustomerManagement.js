@@ -23,17 +23,18 @@ import {
   BrowserRouter as Router, Routes, Route, Link, useParams,
   useMatch
 } from "react-router-dom";
-import { DonorSetup } from './DonorSetup';
-import { DonorProfile } from './DonorProfile';
-import { DonorList } from './DonorList';
+import { CustomerSetup } from './CustomerSetup';
+import { CustomerProfile1, CustomerProfile2 } from './CustomerProfile';
+import { CustomerList } from './CustomerList';
 
-export function DonorManagement() {
+export function CustomerManagement() {
 
   return (
     <Routes >
-    <Route path={`/`} element={ <DonorList />} />
-    <Route path={`add/`} element={ <DonorSetup />} />
-    <Route path={`profile/:profileId/`} element={ <DonorProfile />} />
+    <Route path={`/`} element={ <CustomerList />} />
+    <Route path={`add/`} element={ <CustomerSetup />} />
+    <Route path={`profile/123/`} element={ <CustomerProfile1 />} />
+    <Route path={`profile/124/`} element={ <CustomerProfile2 />} />
   </Routes>
   );
 }

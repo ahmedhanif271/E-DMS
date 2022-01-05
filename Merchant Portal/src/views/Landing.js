@@ -23,10 +23,11 @@ import {
   MDBInput
 } from 'mdb-react-ui-kit';
 import { Login } from './Authentication/Login'
-import { ChildManagement, CustomerRegisteration } from './Customer/CustomerRegisteration'
-import { DonorManagement } from './DonorManagement/DonorManagement'
+
+import { CustomerManagement } from './CustomerManagement/CustomerManagement'
 import { MeterConfiguration } from './Meter/MeterConfiguration';
 import { NetworkConfiguration } from './Network/NetworkConfiguration';
+import { UserConfiguration } from './UserConfiguration/UserConfiguration';
 import {
   BrowserRouter as Router, Routes, Route, Link, useParams,
   useMatch
@@ -49,10 +50,10 @@ export function Landing() {
           </div>
           <div className="custom-sidebar-menu-item">
             <div className="custom-sidebar-menu-item-inner">
-              <Link to={`/home/customer`} >Customer</Link>
+            <Link to={`/home/customers`} >Customer Management</Link>
             </div>
-          </div>
-          <div className="custom-sidebar-menu-item">
+
+            <div className="custom-sidebar-menu-item">
             <div className="custom-sidebar-menu-item-inner">
               <Link to={`/home/meter-config`} >Meter type</Link>
             </div>
@@ -62,31 +63,32 @@ export function Landing() {
               <Link to={`/home/network-config`} >Network</Link>
             </div>
           </div>
+          </div>
+          
+          
+          
           <div className="custom-sidebar-menu-item">
             <div className="custom-sidebar-menu-item-inner">
-            <Link to={`/home/donors`} >Donor Management</Link>
+            <Link to={`/home/user-config`} >  User configurations</Link>
             </div>
-          </div>
-          <div className="custom-sidebar-menu-item">
+            <div className="custom-sidebar-menu-item">
             <div className="custom-sidebar-menu-item-inner">
               Reports
             </div>
           </div>
-          <div className="custom-sidebar-menu-item">
-            <div className="custom-sidebar-menu-item-inner">
-              System configurations
-            </div>
           </div>
+          
         </div>
         <div className="custom-sidebar-content">
       <div className="custom-sidebar-content-nav">
 
       </div>
           <Routes>
-            <Route path={`customer/*`} element={ <CustomerRegisteration />} />
-            <Route path={`donors/*`} element={ <DonorManagement />} />
+            
+            <Route path={`customers/*`} element={ <CustomerManagement />} />
             <Route path={`meter-config/*`} element={ <MeterConfiguration />} />
             <Route path={`network-config/*`} element={ <NetworkConfiguration />} />
+            <Route path={`user-config/*`} element={ <UserConfiguration />} />
 
           </Routes>
 

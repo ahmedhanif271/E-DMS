@@ -21,11 +21,19 @@ import {
 } from 'mdb-react-ui-kit';
 
 
-export function GridButton(props){
+export function GridButton1(props){
 console.log(props.color)
   return (
-    <MDBBtn tag='a' color='none'  style={{ color: props.color }} href="/home/donors/profile/123">
+    <MDBBtn tag='a' color='none'  style={{ color: props.color }} href="/home/customers/profile/123">
       <MDBIcon fas icon={props.iconName} size="lg"  />
     </MDBBtn>
   );
+}
+  export function GridButton2(props){
+    console.log(props.color)
+      return (
+        <MDBBtn tag='a' color='none'  style={{ color: props.color }} href="/home/customers/profile/124">
+          <MDBIcon fas icon={props.iconName} size="lg"  />
+        </MDBBtn>
+      );
 }

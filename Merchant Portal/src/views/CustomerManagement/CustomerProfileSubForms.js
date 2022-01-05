@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { GridButton } from '../../CustomComponents/GridButton';
+import { GridButton1 , GridButton2 } from '../../CustomComponents/GridButton';
 import {
   MDBNavbar,
   MDBNavbarNav,
@@ -22,14 +22,22 @@ import {
 
 } from 'mdb-react-ui-kit';
 import DataTable from 'react-data-table-component';
-const childColumns = [
+const customerColumns = [
   {
     name: 'Name',
     selector: row => row.name,
   },
   {
-    name: 'Age',
-    selector: row => row.age,
+    name: 'Units',
+    selector: row => row.units,
+  },
+  {
+    name: 'Month',
+    selector: row => row.month,
+  },
+  {
+    name: 'Amount',
+    selector: row => row.amount,
   },
   {
     name: 'Status',
@@ -41,31 +49,67 @@ const childColumns = [
   },
 ];
 
-const childData = [
+const customerData1 = [
   {
     id: 1,
-    name: 'Ashar Ali',
-    age: '12',
-    status: 'Active',
-    action: <GridButton iconName="user-times" color="red" />
+    name: 'Abdul Rafay',
+    units: '1220',
+    month: 'January',
+    amount: '5000',
+    status: 'Paid',
+    action: <GridButton1 iconName="user-times" color="green" />
   },
   {
-    id: 1,
-    name: 'Ashar Ali',
-    age: '12',
-    status: 'Active',
-    action: <GridButton iconName="user-times" color="red" />
+    id: 2,
+    name: 'Abdul Rafay',
+    units: '1121',
+    month: 'Febuary',
+    amount: '2560',
+    status: 'Paid',
+    action: <GridButton1 iconName="user-times" color="green" />
   },
   {
-    id: 1,
-    name: 'Ashar Ali',
-    age: '12',
-    status: 'Active',
-    action: <GridButton iconName="user-times" color="red" />
+    id: 3,
+    name: 'Abdul Rafay',
+    units: '1880',
+    month: 'March',
+    amount: '9000',
+    status: 'Not Paid',
+    action: <GridButton1 iconName="user-times" color="red" />
   },
 ]
 
-export function DonorSubProfile() {
+const customerData2 = [
+  {
+    id: 1,
+    name: 'Ahmed Hanif',
+    units: '12220',
+    month: 'January',
+    amount: '50400',
+    status: 'Paid',
+    action: <GridButton2 iconName="user-times" color="green" />
+  },
+  {
+    id: 2,
+    name: 'Ahmed Hanif',
+    units: '1521',
+    month: 'Febuary',
+    amount: '8360',
+    status: 'Paid',
+    action: <GridButton2 iconName="user-times" color="green" />
+  },
+  {
+    id: 3,
+    name: 'Ahmed Hanif',
+    units: '180',
+    month: 'March',
+    amount: '1250',
+    status: 'Paid',
+    action: <GridButton2 iconName="user-times" color="green" />
+  },
+]
+
+export function CustomerSubProfile() {
 
   return (
     <div className="p-4 text-start w-100">
@@ -75,7 +119,7 @@ export function DonorSubProfile() {
         <div className="grey-text text-start">
 
           <MDBRow>
-            <h5>Donor Information</h5>
+            <h5>Customer Information</h5>
             <MDBCol lg="4" className="py-1">
               <MDBInput label="Name" icon="envelope" group type="text" validate error="wrong"
                 success="right" />
@@ -171,11 +215,11 @@ export function DonorSubProfile() {
           <MDBRow>
             <h5>Documents</h5>
             <MDBCol lg="4" className="py-1">
-              Donor picture: <input type="file" />
+              Customer picture: <input type="file" />
             </MDBCol>
 
             <MDBCol lg="4" className="py-1">
-              Donor CNIC: <input type="file" />
+              Customer CNIC: <input type="file" />
             </MDBCol>
 
           </MDBRow>
@@ -187,8 +231,7 @@ export function DonorSubProfile() {
     </div>
   );
 }
-
-export function DonorSubStatus() {
+export function CustomerSubStatus1() {
 
   return (
     <div className="p-4 text-start w-100">
@@ -196,19 +239,23 @@ export function DonorSubStatus() {
       <form>
         <MDBRow>
           <MDBCol size='4'>
-            <MDBInput className="mt-3" label="Child adopted" type="text" value={"3"} disabled style={{ backgroundColor: "#FFFFFF" }}
+            <MDBInput className="mt-3" label="Devices Connected" type="text" value={"3"} disabled style={{ backgroundColor: "#FFFFFF" }}
             />
           </MDBCol>
           <MDBCol size='4'>
-            <MDBInput className="mt-3" label="Amount payable" type="text" value={"0"} disabled style={{ backgroundColor: "#FFFFFF" }}
+            <MDBInput className="mt-3" label="Units Consumed" type="text" value={"1729"} disabled style={{ backgroundColor: "#FFFFFF" }}
             />
           </MDBCol>
           <MDBCol size='4'>
-            <MDBInput className="mt-3" label="Amount paid (Current Month)" type="text" value={"30000"} disabled style={{ backgroundColor: "#FFFFFF" }}
+            <MDBInput className="mt-3" label="Amount Due" type="text" value={"5497"} disabled style={{ backgroundColor: "#FFFFFF" }}
             />
           </MDBCol>
           <MDBCol size='4'>
-            <MDBInput className="mt-3" label="Total amount paid" type="text" value={"30000"} disabled style={{ backgroundColor: "#FFFFFF" }}
+            <MDBInput className="mt-3" label="Amount paid (Current Month)" type="text" value={"0"} disabled style={{ backgroundColor: "#FFFFFF" }}
+            />
+          </MDBCol>
+          <MDBCol size='4'>
+            <MDBInput className="mt-3" label="Total Months" type="text" value={"3"} disabled style={{ backgroundColor: "#FFFFFF" }}
             />
           </MDBCol>
         </MDBRow>
@@ -219,17 +266,72 @@ export function DonorSubStatus() {
   );
 }
 
-export function DonorSubChild() {
+
+
+export function CustomerSubStatus2() {
+
+  return (
+    <div className="p-4 text-start w-100">
+
+      <form>
+        <MDBRow>
+          <MDBCol size='4'>
+            <MDBInput className="mt-3" label="Devices Connected" type="text" value={"11"} disabled style={{ backgroundColor: "#FFFFFF" }}
+            />
+          </MDBCol>
+          <MDBCol size='4'>
+            <MDBInput className="mt-3" label="Units Consumed" type="text" value={"1599"} disabled style={{ backgroundColor: "#FFFFFF" }}
+            />
+          </MDBCol>
+          <MDBCol size='4'>
+            <MDBInput className="mt-3" label="Amount Due" type="text" value={"0"} disabled style={{ backgroundColor: "#FFFFFF" }}
+            />
+          </MDBCol>
+          <MDBCol size='4'>
+            <MDBInput className="mt-3" label="Amount paid (Current Month)" type="text" value={"1250"} disabled style={{ backgroundColor: "#FFFFFF" }}
+            />
+          </MDBCol>
+          <MDBCol size='4'>
+            <MDBInput className="mt-3" label="Total Months" type="text" value={"3"} disabled style={{ backgroundColor: "#FFFFFF" }}
+            />
+          </MDBCol>
+        </MDBRow>
+      </form>
+
+
+    </div>
+  );
+}
+
+export function CustomerBill1() {
 
   return (
     <div className="p-4 text-start w-100">
       <div className="w-100 d-flex p-4 justify-content-end" >
-        <MDBBtn href='/home/donors/add' >Add Child</MDBBtn>
+        <MDBBtn href='/home/customers/add' >Add</MDBBtn>
       </div>
       <DataTable
         pagination="true"
-        columns={childColumns}
-        data={childData}
+        columns={customerColumns}
+        data={customerData1}
+
+      />
+
+    </div>
+  );
+}
+
+export function CustomerBill2() {
+
+  return (
+    <div className="p-4 text-start w-100">
+      <div className="w-100 d-flex p-4 justify-content-end" >
+        <MDBBtn href='/home/customers/add' >Add</MDBBtn>
+      </div>
+      <DataTable
+        pagination="true"
+        columns={customerColumns}
+        data={customerData2}
 
       />
 
